@@ -56,10 +56,7 @@ class Main extends PluginBase implements Listener{
         return true;
     }
     
- public function onLogin(PlayerLoginEvent $event) {
-     $player = $event->getPlayer();
-     $p = strtolower($player->getName());
- }
+
     
 public function rajinCount($player){
     return $this->rajin->get($player);
