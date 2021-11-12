@@ -19,7 +19,6 @@ use pocketmine\inventory\Inventory;
 use pocketmine\utils\Config;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\inventory\transaction\action\SlotChangeAction;
 
 class Main extends PluginBase implements Listener{
@@ -34,7 +33,7 @@ class Main extends PluginBase implements Listener{
         @mkdir($this->getDataFolder());
 		$this->progress = new Config($this->getDataFolder() . "progress.yml", Config::YAML, array());
 		$this->cQ = new Config($this->getDataFolder() . "checkQuest.yml", Config::YAML, array());
-        $this->rajin = new Config ($this->getDataFolder() . "rajin.yml", Config::YAML, array());
+                $this->rajin = new Config ($this->getDataFolder() . "rajin.yml", Config::YAML, array());
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
    public function checkQuest($sender){
