@@ -1,4 +1,4 @@
 # SansQuest
 A SansQuest Plugin For PocketMine 3.0.0 Server
 # Depend
-* [InventoryAPI]("https://github.com/Sonsa04/InventoryAPI")
+* [InventoryAPI](https://github.com/Sonsa04/InventoryAPI)
