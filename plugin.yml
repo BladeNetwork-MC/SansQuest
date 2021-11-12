@@ -1,0 +1,10 @@
+name: SansQuest
+main: RevandDev\Main
+api: 3.0.0
+depend: ["InventoryAPI", "EconomyAPI"]
+author: RevandDev
+version: 0.1.1-BETA
+
+commands:
+  sansquest:
+    description: "SansQuest"
