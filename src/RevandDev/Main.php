@@ -49,7 +49,7 @@ class Main extends PluginBase implements Listener {
     			$sender->sendMessage("Use In Game");
     		}
     	}
-        return true;
+    	return true;
     }
     
     public function rajinCount($player){
