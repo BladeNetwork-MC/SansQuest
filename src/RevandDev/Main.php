@@ -77,7 +77,7 @@ class Main extends PluginBase implements Listener {
         $inventory->setItem(11, Item::get(1, 0, 1)->setCustomName("§l§eQuest 1\n§r\nHancurkan Block Stone 256 Kali\nHadiah: 1 Juta"));
         $inventory->setItem(12, Item::get(87, 0, 1)->setCustomName("§l§eQuest 2\n§r\nHancurkan Block Netherrack 256 Kali\nHadiah: 1,5 Juta"));
         $inventory->setItem(13, Item::get(17, 0, 1)->setCustomName("§l§eQuest 3\n§r\nHancurkan Block Kayu 128 Kali\nHadiah: 2,5 Juta"));
-        $inventory->setItem(14, Item::get(17, 0, 1)->setCustomName("§l§eQuest 4\n§r\nPlace Block Kayu 150 Kali\nHadiah: 2,5 Juta");
+        $inventory->setItem(14, Item::get(17, 0, 1)->setCustomName("§l§eQuest 4\n§r\nPlace Block Kayu 150 Kali\nHadiah: 2,5 Juta"));
         $inventory->setItem(15, Item::get(1, 0, 1)->setCustomName("§l§eQuest 5\n§r\nPlace Block Coblestone 300 Kali\nHadiah: 3,2 Juta"));
         $inventory->setItem(16, $glass1);
         $inventory->setItem(17, $glass1);
