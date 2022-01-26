@@ -146,7 +146,7 @@ class Main extends PluginBase implements Listener {
         $p = strtolower($player->getName());
         // Check and handle if EconomyLand added, fix bug duplicate
         if (class_exists(EconomyLand::class)) {
-            if(!EconomyLand::getInstance()->permissionCheck($event));
+            if(!EconomyLand::getInstance()->permissionCheck($event)) {
                return;
 	    }
         }
