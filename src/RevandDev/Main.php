@@ -16,6 +16,8 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
+use onebone\economyland\EconomyLand;
+
 use pocketmine\inventory\Inventory;
 use pocketmine\inventory\transaction\action\SlotChangeAction;
 
@@ -142,6 +144,12 @@ class Main extends PluginBase implements Listener {
         $player = $event->getPlayer();
         $block = $event->getBlock();
         $p = strtolower($player->getName());
+        // Check and handle if EconomyLand added, fix bug duplicate
+        if (class_exists(EconomyLand::class)) {
+            if(!EconomyLand::getInstance()->permissionCheck($event));
+               return;
+	    }
+        }
         //Quest 1 (Stone)
         if ($this->checkQuest($p) == 1) {
             if ($block->getId() == 1) {
@@ -204,6 +212,12 @@ class Main extends PluginBase implements Listener {
         $player = $event->getPlayer();
         $block = $event->getBlock();
         $p = strtolower($player->getName());
+        // Check and handle if EconomyLand added, fix bug duplicate
+        if (class_exists(EconomyLand::class)) {
+            if(!EconomyLand::getInstance()->permissionCheck($event));
+               return;
+	    }
+        }
         //Quest 4 (Place kayu)
         if ($this->checkQuest($p) == 4) {
             if ($block->getId() == 17) {
