@@ -262,4 +262,16 @@ class Main extends PluginBase implements Listener {
     {
         return $this->rajin->get($player->getName());
     }
+
+    //use player (not name)
+    public function getQuest($player)
+    {
+        return $this->checkquest->get($player->getName());
+    }
+	
+    //use player (not name)
+    public function getProgress($player)
+    {
+        return $this->progress->get($player->getName());
+    }
 }
