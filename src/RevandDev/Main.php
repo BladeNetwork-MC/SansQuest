@@ -31,7 +31,7 @@ class Main extends PluginBase implements Listener {
         //db
         @mkdir($this->getDataFolder());
         $this->progress = new Config($this->getDataFolder() . "progress.yml", Config::YAML, []);
-        $this->cQ = new Config($this->getDataFolder() . "checkQuest.yml", Config::YAML, []);
+        $this->cQ = new Config($this->getDataFolder() . "checkquest.yml", Config::YAML, []);
         $this->rajin = new Config($this->getDataFolder() . "rajin.yml", Config::YAML, []);
         
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -54,6 +54,7 @@ class Main extends PluginBase implements Listener {
     	return true;
     }
     
+    //using playername
     public function rajinCount($player){
         return $this->rajin->get($player);
     }
@@ -97,7 +98,7 @@ class Main extends PluginBase implements Listener {
     }
 
     public function clickEvent(Player $player, Inventory $inventory, Item $source, Item $target, int $slot) {
-        $p = strtolower($player->getName());
+        $p = $player->getName();
         $checkQuest = $this->checkQuest($p);
         if ($source->getName() == "§l§eQuest 1\n§r\nHancurkan Block Stone 256 Kali\nHadiah: 1 Juta") {
             $this->cQ->set($p, "1");
@@ -165,7 +166,7 @@ class Main extends PluginBase implements Listener {
                     $this->cQ->save();
                     $this->rajin->set($p, $this->rajinCount($p) + 1);
                     $this->rajin->save();
-                    $this->getServer()->broadcastMessage("§l§eSansQuest §g> §r" . $player->getName() . "Telah menyelesaikan §aQuest 1 §fDan mendapatkan Uang 1 Juta");
+                    $this->getServer()->broadcastMessage("§l§eSansQuest §g> §r" . $player->getName() . " Telah menyelesaikan §aQuest 1 §fDan mendapatkan Uang 1 Juta");
                 }
             }
         } else if ($this->checkQuest($p) == 2) {
@@ -182,7 +183,7 @@ class Main extends PluginBase implements Listener {
                     $this->cQ->save();
                     $this->rajin->set($p, $this->rajinCount($p) + 1);
                     $this->rajin->save();
-                    $this->getServer()->broadcastMessage("§l§eSansQuest §g> §r" . $player->getName() . "Telah menyelesaikan §aQuest 2 §fDan mendapatkan Uang 1,5 Juta");
+                    $this->getServer()->broadcastMessage("§l§eSansQuest §g> §r" . $player->getName() . " Telah menyelesaikan §aQuest 2 §fDan mendapatkan Uang 1,5 Juta");
                 }
             }
         } else if ($this->checkQuest($p) == 3) {
@@ -211,10 +212,10 @@ class Main extends PluginBase implements Listener {
         if ($event->isCancelled()) return;
         $player = $event->getPlayer();
         $block = $event->getBlock();
-        $p = strtolower($player->getName());
+        $p = $player->getName();
         // Check and handle if EconomyLand added, fix bug duplicate
         if (class_exists(EconomyLand::class)) {
-            if(!EconomyLand::getInstance()->permissionCheck($event));
+            if(!EconomyLand::getInstance()->permissionCheck($event)){
                return;
 	    }
         }
@@ -254,5 +255,11 @@ class Main extends PluginBase implements Listener {
                 }
             }
         }
+    }
+	
+    //use player (not name)
+    public function getRajin($player)
+    {
+        return $this->rajin->get($player->getName());
     }
 }
